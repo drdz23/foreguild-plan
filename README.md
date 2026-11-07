@@ -25,6 +25,10 @@ This prints every Section 1 market figure from `data/jobs.json`.
 
 `audit.py` imports the open-source linter [drdz23/verdikta-rubric-preflight](https://github.com/drdz23/verdikta-rubric-preflight). It also expects the rubrics fetched from IPFS by `pull_rubrics.mjs`.
 
+## Author
+
+drdz23 (David Rodríguez, Honduras). X: [@rodriguez_73833](https://x.com/rodriguez_73833)
+
 ## Disclosure
 
 I am an active hunter on Verdikta Bounties, the board analysed here. I have no affiliation with Seer or Verdikta. The plan was drafted with an AI assistant (Claude), and every number was recomputed from the public data above.
