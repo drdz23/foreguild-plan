@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Foreguild: Buyers Are the Bottleneck</title>
+<meta name="description" content="A revenue-first operating plan for Foreguild, a futarchy-governed AI job board, built from 394 settled bounties on the closest live analogue.">
+<style>
+:root{--bg:#fbfaf7;--fg:#1d2430;--mut:#5b6573;--acc:#b5482b;--acc2:#1f5f8b;--line:#e3ded3;--card:#ffffff;--good:#2c7a4b;--warn:#a86b00}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171c;--fg:#e6e8eb;--mut:#a3abb6;--acc:#f08a6a;--acc2:#7cb7e0;--line:#2b3038;--card:#1b1f26;--good:#7fd1a0;--warn:#e7b65a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.62 Georgia,"Iowan Old Style","Times New Roman",serif}
+main{max-width:860px;margin:0 auto;padding:40px 16px 80px}
+h1{font:700 40px/1.15 system-ui,-apple-system,"Segoe UI",sans-serif;margin:8px 0 10px;letter-spacing:-.5px}
+h2{font:700 25px/1.25 system-ui,-apple-system,"Segoe UI",sans-serif;margin:46px 0 12px;padding-top:14px;border-top:2px solid var(--line)}
+h3{font:700 19px/1.3 system-ui,-apple-system,"Segoe UI",sans-serif;margin:26px 0 8px}
+.kicker{font:600 13px system-ui,sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:var(--acc)}
+.sub{font-size:19px;color:var(--mut);margin:0 0 18px}
+.meta{font:13px system-ui,sans-serif;color:var(--mut)}
+.thesis{background:var(--card);border-left:5px solid var(--acc);padding:16px 20px;margin:22px 0;border-radius:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:18px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px}
+.stat b{display:block;font:700 28px/1.1 system-ui,sans-serif;color:var(--acc2)}
+.stat span{font:13px/1.35 system-ui,sans-serif;color:var(--mut)}
+table{width:100%;border-collapse:collapse;margin:14px 0;font:14.5px/1.45 system-ui,sans-serif}
+th,td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:left;vertical-align:top}
+th{background:var(--card);font-weight:700}
+td.n,th.n{text-align:right;white-space:nowrap}
+.tw{overflow-x:auto}
+code{font:14px Consolas,Menlo,monospace;background:var(--card);border:1px solid var(--line);padding:1px 5px;border-radius:4px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:16px 0}
+.box h3{margin-top:4px}
+.fip{border-left:4px solid var(--acc2)}
+.note{font:14px/1.5 system-ui,sans-serif;color:var(--mut)}
+ol li,ul li{margin:4px 0}
+a{color:var(--acc2)}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font:600 13px system-ui,sans-serif;margin:12px 0}
+.flow span{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px 9px}
+.flow i{color:var(--mut);font-style:normal}
+@media print{body{font-size:12.5pt}main{max-width:none;padding:0}h2{break-after:avoid}.box,.stat,table{break-inside:avoid}a{color:inherit}}
+</style>
+</head>
+<body>
+<main>
+
+<div class="kicker">Foreguild FAO · Operating plan · Optimised for revenue</div>
+<h1>Buyers Are the Bottleneck</h1>
+<p class="sub">An operating plan for Foreguild, written from the numbers of the closest AI job board already running: 394 on-chain bounties, 525 AI-jury verdicts, 61 external buyers.</p>
+<p class="meta">Non-internal entry by drdz23 (David Rodríguez, Honduras) · November 2026 · Drafted with an AI assistant (Claude), every number recomputed from public data · Disclosure: I am an active hunter on Verdikta Bounties, the board analysed below (second by number of awards in this dataset). I have no affiliation with Seer or Verdikta.</p>
+
+<div class="thesis">
+<b>Thesis.</b> Agent labour is already abundant: on the closest live market, the winning answer arrives a median <b>13 minutes</b> after a task opens, and <b>67</b> different agents shared 240 awards. What is scarce is an outside buyer who pays for a well-specified outcome and comes back. On that market the platform itself posted <b>51%</b> of all tasks, and <b>50 of its 61</b> outside "buyers" were also workers recycling their winnings. Foreguild should therefore spend its agents, its treasury and its futarchy on one thing: <b>turning outside buyers into repeat buyers</b>, and measure itself only by the fees those buyers pay.
+</div>
+
+<h2>1. What a live AI job board actually looks like</h2>
+<p>Foreguild's core loop is "humans and AIs post tasks, AI completes them and gets paid in crypto". That loop already runs on Verdikta Bounties (Base): a creator escrows ETH with a published rubric, agents submit, a multi-model AI jury scores each submission, and the first submission that clears the threshold is paid. I pulled every job from its public API (<code>/api/jobs/&lt;id&gt;</code>, ids 1–469, deduplicated, 12 Sep – 6 Nov 2026) and joined the rubric of each bounty from IPFS. ETH is converted at $2,233.</p>
+
+<div class="grid">
+<div class="stat"><b>394</b><span>bounties that reached the chain (49 more were staged and never funded)</span></div>
+<div class="stat"><b>1.149 ETH</b><span>total escrowed in 8 weeks, about $2,570</span></div>
+<div class="stat"><b>13 min</b><span>median time from opening to the winning submission (71% within 1 h)</span></div>
+<div class="stat"><b>58%</b><span>of 525 jury-scored submissions passed</span></div>
+</div>
+
+<h3>Supply is cheap and fast</h3>
+<p>The median bounty received 1 submission (mean 1.59), and it was usually enough: 76% of awards went to the first submission. 67 distinct wallets won at least once, but the top two took 35% of awards. Workers are not the constraint. Competition between them is about speed, and speed is already near zero.</p>
+
+<h3>Demand is thin, concentrated and partly circular</h3>
+<div class="tw"><table>
+<tr><th>Who posted the work</th><th class="n">Bounties</th><th class="n">ETH</th><th class="n">Paid to an outside worker</th></tr>
+<tr><td>The platform's own three wallets</td><td class="n">199 (51%)</td><td class="n">0.542</td><td class="n">66 bounties, 0.140 ETH</td></tr>
+<tr><td>61 outside creators</td><td class="n">195 (49%)</td><td class="n">0.608</td><td class="n">164 bounties, 0.549 ETH</td></tr>
+<tr><td>&nbsp;&nbsp;of which the single largest outside creator</td><td class="n">70</td><td class="n"></td><td class="n"></td></tr>
+<tr><td>&nbsp;&nbsp;of which creators who are also workers on the board</td><td class="n">181 (50 of 61 creators)</td><td class="n"></td><td class="n"></td></tr>
+</table></div>
+<p>Two conclusions shape everything below. First, <b>the whole outside market was about $1,360 in eight weeks</b>; a 10% fee on it would have earned about $136. A plan that simply copies the loop and adds a fee does not produce a business. Second, <b>"volume" is easy to fake</b>: most outside posting came from workers re-posting winnings, and the platform's own wallets created half the board. Any revenue metric that counts this activity will reward the wrong behaviour, and a futarchy that optimises it will be gamed.</p>
+
+<h3>Why tasks fail: the specification, not the worker</h3>
+<p>I ran a rubric linter on every bounty the platform posted itself (185 with a public rubric) and back-tested it against outcomes, using only properties known at launch.</p>
+<div class="tw"><table>
+<tr><th>Rubric defects found before launch</th><th class="n">Market bounties</th><th class="n">Paid a winner</th></tr>
+<tr><td>No high-severity defect</td><td class="n">33</td><td class="n"><b>97%</b></td></tr>
+<tr><td>One</td><td class="n">12</td><td class="n">92%</td></tr>
+<tr><td>Two or more</td><td class="n">34</td><td class="n"><b>68%</b></td></tr>
+</table></div>
+<p>12 of the 13 bounties that expired with outside submissions and no winner had a defect detectable before launch. The single costliest one was the threshold: 90 or above passed 15% of submissions, 85–89 passed 58%. A series of seven bounties at 92–94 received 23 scored submissions and paid nobody. Five of the failures had a best score within 1–5 points of a 92–94 bar and would all have paid at 89. A buyer whose task fails for reasons like these does not come back.</p>
+<p class="note">Caveat: the linter's thresholds were calibrated on this same history, so the back-test is a consistency check. Section 7 lists out-of-sample predictions that Foreguild's first markets would test.</p>
+
+<h3>The cost of a verdict</h3>
+<p>Every jury evaluation consumes an oracle prepay of about 0.00024 ETH ($0.54). The mean bounty was 0.0029 ETH ($6.50), and it took 1.59 evaluations on average. <b>Evaluation alone is about 13% of the value of an average task</b>, more than a typical marketplace fee. On a $5 task, nothing is left for the guild. Revenue needs bigger tasks, not more tiny ones.</p>
+
+<h2>2. What Foreguild sells</h2>
+<p>Foreguild does not sell agent labour; that is a commodity. It sells <b>specifications that clear</b>: a task written so that it gets done, judged fairly and paid on the first attempt. Its customer is the buyer. Revenue comes from four lines, ordered by how early they can earn.</p>
+
+<div class="tw"><table>
+<tr><th>Line</th><th>What the buyer gets</th><th>Price (initial, futarchy-tunable)</th><th>Starts</th></tr>
+<tr><td><b>A. Clearance service</b></td><td>For any board, grant program or contest (Poidh creators, Verdikta creators, Seer opportunity markets): rubric preflight, threshold calibration and an independent multi-model verdict on submissions</td><td>$1.50 per evaluation (cost ~$0.55) + $10 per rubric review</td><td>Day 1, no marketplace needed</td></tr>
+<tr><td><b>B. Success fee</b></td><td>Buyer-funded tasks on Foreguild's own board, paid only when the work is accepted and the 72-hour appeal window closes</td><td>12% of task value, minimum task $20</td><td>Month 2</td></tr>
+<tr><td><b>C. Scoping fee</b></td><td>A buyer describes the outcome in plain words; the Scoping agent writes the task, rubric, threshold and evidence rules, and prices it from history</td><td>$5, credited against the success fee if the task is posted</td><td>Month 2</td></tr>
+<tr><td><b>D. Repeat plans</b></td><td>Recurring work (weekly research digests, monitoring, data refreshes, translation batches) with a fixed rubric and a reserved worker pool</td><td>Monthly subscription, 10% of committed spend, minimum $50/month</td><td>Month 3</td></tr>
+</table></div>
+
+<p>Workers pay their own evaluation prepay, as on Verdikta, so the guild never subsidises failed attempts. The rule that disciplines the business: <b>a fee only counts as revenue after the buyer's money is settled and cannot be refunded.</b></p>
+
+<h2>3. What the agents do</h2>
+<p>Foreguild is a swarm of narrow agents. Each one has a single job, an allowance it cannot exceed, and a log that anyone can read.</p>
+<div class="flow"><span>Buyer request</span><i>→</i><span>Scoping</span><i>→</i><span>Preflight</span><i>→</i><span>Pricing</span><i>→</i><span>Routing</span><i>→</i><span>Workers</span><i>→</i><span>Jury</span><i>→</i><span>Settlement</span><i>→</i><span>Audit &amp; metric</span></div>
+<div class="tw"><table>
+<tr><th>Agent</th><th>Does</th><th>May not</th></tr>
+<tr><td>Scout</td><td>Finds buyers, not tasks: reads public bounty boards, grant programs and repeat posters, offers the clearance service, and tracks who comes back</td><td>Post tasks for Foreguild itself or count its own posts as demand</td></tr>
+<tr><td>Scoping</td><td>Turns a plain request into a task: deliverable, evidence the jury can actually see (pasted text, not links), criteria and weights, threshold</td><td>Set a threshold above the active cap for the category</td></tr>
+<tr><td>Preflight</td><td>Lints every rubric against known failure patterns (threshold above ceiling, split-jury gates, unreachable evidence, empty criteria) and blocks launch on a high-severity defect unless the buyer overrides it in writing</td><td>Edit a live task</td></tr>
+<tr><td>Pricing</td><td>Suggests prize and window from settled history of similar tasks; warns when a prize is below the evaluation-cost floor</td><td>Discount below the minimum task size</td></tr>
+<tr><td>Routing</td><td>Chooses the mode: open race (first passing submission wins) for small, checkable tasks; best-at-deadline or invited bench for tasks above $100 or with taste in them</td><td>Exclude a worker without a recorded reason</td></tr>
+<tr><td>Workers</td><td>Any outside agent or human with a wallet; reputation comes from accepted work, and a small bond is required for invited benches</td><td>Submit to a task posted by a wallet they control</td></tr>
+<tr><td>Jury</td><td>Multi-model scoring against the published rubric, from at least two model providers; the score is the weighted rubric average, rounded down</td><td>See the worker's identity</td></tr>
+<tr><td>Settlement</td><td>Releases escrow after acceptance and the appeal window; refunds unclaimed tasks at the deadline</td><td>Hold funds past the stated window</td></tr>
+<tr><td>Auditor</td><td>Computes the governance metric, flags wash trading and self-dealing (shared funding sources, buyer-worker overlap), and publishes the data and script</td><td>Change the metric definition (only futarchy can)</td></tr>
+<tr><td>Treasurer</td><td>Pays approved budgets: compute, gas, market liquidity, buyer subsidies</td><td>Spend above a line item approved by futarchy</td></tr>
+<tr><td>Proposer</td><td>Drafts improvement proposals (FIPs) with the evidence attached, from the Auditor's data</td><td>Trade on its own proposals</td></tr>
+</table></div>
+
+<h2>4. How futarchy directs the agents</h2>
+<h3>The welfare metric: Net Repeat Buyer Revenue (NRBR-90)</h3>
+<p>Foreguild maximises one number: <b>fees retained over the next 90 days from net outside buyers who pay at least twice.</b></p>
+<ul>
+<li><b>Retained:</b> counted only after the appeal window closes, net of refunds.</li>
+<li><b>Net outside buyer:</b> a wallet cluster that is not Foreguild, its treasury or its agents, and that paid more into tasks in the window than it received as a worker. A worker re-posting winnings nets to zero and adds nothing. This is the lesson of the 50 of 61 Verdikta creators who were also workers.</li>
+<li><b>Repeat:</b> the buyer funded two or more accepted tasks in the window. Line A clients count when they pay twice.</li>
+</ul>
+<p>The metric is computed by an open script over on-chain settlement events and resolved through Seer's oracle (Reality.eth) with the script and data attached, so anyone can re-run it and dispute a wrong answer.</p>
+
+<h3>The decision loop</h3>
+<ol>
+<li>The Proposer agent or any token-free participant posts a FIP: one parameter change or one budget, with evidence.</li>
+<li>Seer opens a decision market ("Is FIP-n adopted?") with two conditional scalar markets on NRBR-90: one if adopted, one if not. The branch that does not happen is voided, and traders in it get their collateral back.</li>
+<li>The Treasurer seeds both branches with the same small liquidity budget, so a thin market is not automatically one-sided.</li>
+<li>After 7 days, the FIP is adopted if the time-weighted price over the last 72 hours of "NRBR-90 if adopted" beats "if not adopted" by at least 3%. Below the minimum liquidity, or inside the margin, the status quo wins.</li>
+<li>The adopted change is executed by the agent that owns that parameter. 90 days later the markets resolve on the measured metric, which pays the traders who priced it right.</li>
+</ol>
+
+<h3>What futarchy controls, and what it does not</h3>
+<div class="tw"><table>
+<tr><th>Governed by markets</th><th>Fixed by rule (never a market)</th></tr>
+<tr><td>Fee rates and minimum task size · threshold caps per category · which task categories are open · race vs best-at-deadline policy · jury composition and number of models · clearance-service prices · buyer subsidies and marketing budgets · treasury spending above $500 · the metric definition itself (with a 30-day delay)</td><td>Paying a worker whose verdict passed · refunds after the deadline · the appeal procedure · content and legal safety · the Auditor's data publication</td></tr>
+</table></div>
+<p>Humans keep exactly one power: a 2-of-3 guardian key can <b>pause</b> the board for a safety or legal emergency, publishing the reason within 24 hours. It cannot propose, spend or change parameters. Every pause automatically becomes a FIP ("resume?") on the next cycle.</p>
+
+<h2>5. The first four proposals</h2>
+<p>Futarchy is only useful if it has real questions to price. These are the first four, each with the evidence a trader would use.</p>
+
+<div class="box fip"><h3>FIP-1: Cap thresholds at 89 for writing and research tasks</h3>
+<p>Evidence: 90+ passed 15% of submissions vs 58% at 85–89; seven bounties at 92–94 paid 0 of 23; five failed bounties had best scores within 1–5 points and would have paid at 89. A buyer whose task pays on the first try is a buyer who returns. Expected effect: more first-try clears and a higher repeat rate, at a small cost in average quality.</p></div>
+
+<div class="box fip"><h3>FIP-2: Minimum task size $20</h3>
+<p>Evidence: the mean task was $6.50, and evaluation alone consumed about 13% of it. Tiny tasks attract tests, promotions and recycled winnings rather than buyers. The market prices whether losing those tasks costs more repeat revenue than it saves.</p></div>
+
+<div class="box fip"><h3>FIP-3: Free first evaluation for new outside buyers</h3>
+<p>The treasury pays the evaluation prepay on the first two tasks of a new net outside buyer (about $1.10 per buyer). This is the cheapest acquisition lever available. It is only worth it if those buyers come back, which is exactly what NRBR-90 measures.</p></div>
+
+<div class="box fip"><h3>FIP-4: Best-at-deadline for tasks above $100</h3>
+<p>Evidence: in a first-passing-wins race, 76% of awards went to the first submission and the median winner arrived in 13 minutes. That is ideal for checkable micro-tasks and bad for work where quality varies. The market decides where the cut-off should sit.</p></div>
+
+<h2>6. Disputes, spending and human intervention</h2>
+<ul>
+<li><b>Appeals.</b> Either side can appeal a verdict within 72 hours by posting a bond of twice the evaluation cost. A second jury with a different model mix re-scores the same evidence. If the verdict flips, the bond is returned and escrow follows the new verdict; otherwise the bond pays the second jury. Escrow is held through the window, so nothing has to be clawed back. On Verdikta, 30% of rejected scored submissions landed between 40 and 60, where one juror's gate decision splits the panel. That is exactly the band where a second opinion is worth paying for.</li>
+<li><b>Spending.</b> Operating costs (compute, gas, oracle fees) run on a monthly budget approved by futarchy. Anything above $500 outside the budget is its own FIP.</li>
+<li><b>Human intervention.</b> It is limited to the pause key described above and to reviewing content flagged for legal risk. Every intervention is logged and becomes a market question.</li>
+</ul>
+
+<h2>7. Revenue model and targets</h2>
+<p>These scenarios are explicit about their assumptions. The benchmark is sobering: the analysed board's entire outside market was about $1,360 in eight weeks. Every scenario requires Foreguild to grow the buyer side well beyond that, which is why the agents, the treasury and the metric all point at buyers.</p>
+<div class="tw"><table>
+<tr><th>Month 6 (monthly)</th><th class="n">Conservative</th><th class="n">Base</th><th class="n">Upside</th></tr>
+<tr><td>Net outside buyers, of which repeat</td><td class="n">30 / 12</td><td class="n">80 / 40</td><td class="n">200 / 110</td></tr>
+<tr><td>Accepted tasks per active buyer</td><td class="n">2</td><td class="n">3</td><td class="n">4</td></tr>
+<tr><td>Average task value</td><td class="n">$30</td><td class="n">$45</td><td class="n">$60</td></tr>
+<tr><td>B. Success fee (12%)</td><td class="n">$216</td><td class="n">$1,296</td><td class="n">$5,760</td></tr>
+<tr><td>C. Scoping fees kept</td><td class="n">$30</td><td class="n">$120</td><td class="n">$400</td></tr>
+<tr><td>A. Clearance evaluations (margin $0.95 each) + reviews</td><td class="n">300 → $385</td><td class="n">1,200 → $1,340</td><td class="n">4,000 → $4,300</td></tr>
+<tr><td>D. Repeat plans</td><td class="n">$0</td><td class="n">$250</td><td class="n">$1,500</td></tr>
+<tr><td><b>Monthly revenue</b></td><td class="n"><b>$631</b></td><td class="n"><b>$3,006</b></td><td class="n"><b>$11,960</b></td></tr>
+<tr><td>Operating cost (compute, gas, market liquidity, subsidies)</td><td class="n">$700</td><td class="n">$1,200</td><td class="n">$2,500</td></tr>
+</table></div>
+<p>The base case breaks even around month 4, mainly because line A earns before the board has any buyers. The conservative case is honest about what happens if buyers do not come: the guild survives as a clearance service for other boards, which is still a business.</p>
+
+<h3>Ten predictions, checkable at day 90</h3>
+<p>Written now, so Seer can grade this plan against what happens.</p>
+<ol>
+<li>At least 70% of tasks that pass Preflight with no high-severity defect are paid on the first window.</li>
+<li>Tasks with a high-severity defect that the buyer overrides pay at least 20 points less often.</li>
+<li>Under FIP-1, first-try clears for writing tasks rise by at least 15 points over the 92–94 baseline.</li>
+<li>Median time to an accepted submission stays under 30 minutes for open-race tasks under $50.</li>
+<li>Buyers whose first task paid on the first try return at least twice as often as buyers whose first task failed.</li>
+<li>Recycled-winnings wallets account for under 10% of NRBR-90-eligible fees once netting is applied.</li>
+<li>Line A reaches at least 300 paid evaluations in month 3.</li>
+<li>Appeals flip at most 15% of contested verdicts.</li>
+<li>No more than 5% of funded tasks are orphaned or refunded for platform reasons.</li>
+<li>The decision markets reject at least one of FIP-1 to FIP-4. A futarchy that approves everything is not measuring anything.</li>
+</ol>
+
+<h2>8. The first 90 days</h2>
+<div class="tw"><table>
+<tr><th>Days</th><th>Build</th><th>Exit test</th></tr>
+<tr><td>1–30</td><td>Line A: Preflight and Jury as a paid service; the Scout offers it to creators on public boards and contests; Auditor publishes the dataset and metric script</td><td>10 paying clearance clients, 300 evaluations</td></tr>
+<tr><td>31–60</td><td>Own board with escrow, the $20 minimum, Scoping and Pricing; first-buyer subsidy from a fixed budget</td><td>40 net outside buyers, 15 repeat</td></tr>
+<tr><td>61–90</td><td>First decision markets on Seer for FIP-1 to FIP-4; Treasurer runs on futarchy-approved budgets only</td><td>4 markets resolved on schedule; NRBR-90 reported publicly every week</td></tr>
+</table></div>
+
+<h2>9. Risks</h2>
+<ul>
+<li><b>Buyers never arrive.</b> This is the main risk, and the reason line A exists: it earns from other boards' buyers before Foreguild has its own.</li>
+<li><b>Thin markets.</b> Low liquidity defaults to the status quo, and the Treasurer seeds both branches equally. Futarchy is used for a few consequential decisions per quarter, not for every parameter.</li>
+<li><b>Metric gaming.</b> Netting removes recycled winnings, the Auditor clusters wallets, and the metric can only be changed by a delayed FIP.</li>
+<li><b>Jury error.</b> At least two providers, appeals with a different model mix, and published verdicts. AI juries are not infallible, and the appeal bond prices that honestly.</li>
+<li><b>Race-to-the-bottom quality.</b> Open races are reserved for checkable tasks; FIP-4 lets the market move the cut-off.</li>
+</ul>
+
+<h2>Appendix: data and method</h2>
+<p class="note">Source: Verdikta Bounties public API <code>GET /api/jobs/&lt;id&gt;</code> for ids 1–469 (the API answers some missing ids with a neighbouring job, so records are deduplicated by jobId), pulled 7 Nov 2026; rubrics fetched by CID from IPFS. "Platform wallets" are the three creator wallets the platform uses for its own bounties. Outside awards exclude bounties won by the creator's own wallet. Evaluation cost is the median <code>ethMaxBudget</code> of 606 submissions. The preflight back-test covers the 79 platform-posted bounties with at least one outside submission that either paid or expired. All counts are reproducible with the scripts published next to this plan. ETH/USD 2,233 (7 Nov 2026).</p>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,165 @@
+{
+  "generated": "2026-11-07T14:00Z",
+  "jobsInDataset": 443,
+  "inhouseBounties": 209,
+  "byWallet": {
+    "W2": 126,
+    "W0": 62,
+    "W3": 21
+  },
+  "byOutcome": {
+    "AWARDED_SELF": 92,
+    "AWARDED_EXTERNAL": 66,
+    "EXPIRED_NO_WINNER": 30,
+    "ORPHANED": 19,
+    "OPEN": 2
+  },
+  "byTier": {
+    "GREEN": 129,
+    "RED": 50,
+    "AMBER": 30
+  },
+  "rubricSource": {
+    "ipfs": 185,
+    "missing": 24
+  },
+  "highRuleFrequency": {
+    "unverifiable_gate": 48,
+    "split_jury_math": 34,
+    "threshold_above_ceiling": 24,
+    "url_only_evidence": 23,
+    "relative_timestamp": 12,
+    "task_type_never_passed": 10,
+    "criteria_without_description": 5,
+    "weights_sum": 5
+  },
+  "ethPrizeTotal": 0.6528,
+  "ethAwardedExternal": 0.1395,
+  "ethExpiredNoWinner": 0.1665,
+  "ethLockedOpenNow": 0.064,
+  "window24h": 117,
+  "backtest_note": "Market bounties = in-house bounties with >=1 external submission that ended AWARDED_EXTERNAL or EXPIRED_NO_WINNER. The preflight thresholds were calibrated on this same history (bounties 1-391), so this is an in-sample consistency check, not an out-of-sample validation.",
+  "failures": {
+    "n": 13,
+    "withAtLeastOneHigh": 12,
+    "wouldHaveBeenAwardedAtThreshold89": [
+      71,
+      72,
+      353,
+      354,
+      356
+    ],
+    "ids": [
+      69,
+      71,
+      72,
+      73,
+      81,
+      107,
+      122,
+      125,
+      151,
+      353,
+      354,
+      356,
+      357
+    ]
+  },
+  "orphanedInhouse": {
+    "n": 19,
+    "eth": 0.1195
+  },
+  "windowEffect": {
+    "le24h": {
+      "n": 21,
+      "awarded": 21,
+      "awardRate": 1.0
+    },
+    "gt24h": {
+      "n": 58,
+      "awarded": 45,
+      "awardRate": 0.776
+    }
+  },
+  "backtest": {
+    "allMarket": {
+      "n": 79,
+      "awarded": 66,
+      "awardRate": 0.835
+    },
+    "noHigh": {
+      "n": 33,
+      "awarded": 32,
+      "awardRate": 0.97
+    },
+    "oneHigh": {
+      "n": 12,
+      "awarded": 11,
+      "awardRate": 0.917
+    },
+    "twoPlusHigh": {
+      "n": 34,
+      "awarded": 23,
+      "awardRate": 0.676
+    },
+    "byTier": {
+      "GREEN": {
+        "n": 33,
+        "awarded": 32,
+        "awardRate": 0.97
+      },
+      "AMBER": {
+        "n": 16,
+        "awarded": 15,
+        "awardRate": 0.938
+      },
+      "RED": {
+        "n": 30,
+        "awarded": 19,
+        "awardRate": 0.633
+      }
+    },
+    "byHighRule": {
+      "unverifiable_gate": {
+        "n": 28,
+        "awarded": 19,
+        "awardRate": 0.679
+      },
+      "url_only_evidence": {
+        "n": 19,
+        "awarded": 17,
+        "awardRate": 0.895
+      },
+      "criteria_without_description": {
+        "n": 0,
+        "awarded": 0,
+        "awardRate": null
+      },
+      "weights_sum": {
+        "n": 1,
+        "awarded": 1,
+        "awardRate": 1.0
+      },
+      "split_jury_math": {
+        "n": 22,
+        "awarded": 11,
+        "awardRate": 0.5
+      },
+      "threshold_above_ceiling": {
+        "n": 20,
+        "awarded": 11,
+        "awardRate": 0.55
+      },
+      "relative_timestamp": {
+        "n": 7,
+        "awarded": 4,
+        "awardRate": 0.571
+      },
+      "task_type_never_passed": {
+        "n": 2,
+        "awarded": 0,
+        "awardRate": 0.0
+      }
+    }
+  }
+}
